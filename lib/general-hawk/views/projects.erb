@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="<%= cijoe_root %>/screen.css" media="screen" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="<%= cijoe_root %>/favicon.ico" type="image/x-icon" />
+    <title>CI Joe Projects</title>
+  </head>
+  <body>
+    <div class="site">
+      <div class="title">
+        <a href="<%= cijoe_root %>/">CI Joe</a>
+        <span class="extra">because knowing is half the battle</span>
+      </div>
+
+      <% projects.each do |project| %>
+        <div class="project">
+          <h1><a href="<%= "/#{project}" %>"><%= project %></a></h1>
+        </div>
+      <% end %>
+
+      <div class="footer">
+        <div class="contact">
+          <p>
+            <a href="https://github.com/defunkt/cijoe#readme">Documentation</a><br/>
+            <a href="https://github.com/defunkt/cijoe">Source</a><br/>
+            <a href="https://github.com/defunkt/cijoe/issues">Issues</a><br/>
+            <a href="https://github.com/defunkt/cijoe/tree/v<%= CIJoe::VERSION %>">v<%= CIJoe::VERSION %></a>
+          </p>
+        </div>
+        <div class="contact">
+          <p>
+            Designed by <a href="http://tom.preston-werner.com/">Tom Preston-Werner</a><br/>
+            Influenced by <a href="http://integrityapp.com/">Integrity</a><br/>
+            Built with <a href="http://sinatrarb.com/">Sinatra</a><br/>
+            Keep it simple, Sam.
+          </p>
+        </div>        
+        <div class="rss">
+          <a href="http://github.com/defunkt/cijoe">
+            <img src="<%= cijoe_root %>/octocat.png" alt="Octocat!" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
