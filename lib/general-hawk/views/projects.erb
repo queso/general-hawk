@@ -1,23 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="<%= cijoe_root %>/screen.css" media="screen" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="<%= cijoe_root %>/favicon.ico" type="image/x-icon" />
+    <link href="<%= hawk_root %>/screen.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js" type="text/javascript"></script>
+    <script src="<%= hawk_root %>/site.js" type="text/javascript"></script>
+    <link rel="shortcut icon" href="<%= hawk_root %>/favicon.ico" type="image/x-icon" />
     <title>CI Joe Projects</title>
   </head>
   <body>
     <div class="site">
       <div class="title">
-        <a href="<%= cijoe_root %>/">CI Joe</a>
+        <a href="/">CI Joe</a>
         <span class="extra">because knowing is half the battle</span>
       </div>
 
-      <% projects.each do |project| %>
-        <div class="project">
-          <h1><a href="<%= "/#{project}" %>"><%= project %></a></h1>
-        </div>
-      <% end %>
+      <div id="projects">
+        <% projects.each do |project| %>
+        <% project.gsub!(/\//, "") %>
+          <div class="project">
+            <div class="project_info">
+              <h1><a href="<%= "/#{project}" %>"><%= project %></a></h1>
+              <ul class="clear_left">
+                <li class="github_link">Build Link</li>
+                <li class="duration">Duration</li>
+              </ul>
+            </div>
+            <span class="status">Status: Unknown</span>
+          </div>
+        <% end %>
+      </div>
 
+      <div class="clear"></div>
       <div class="footer">
         <div class="contact">
           <p>
@@ -37,7 +50,7 @@
         </div>        
         <div class="rss">
           <a href="http://github.com/defunkt/cijoe">
-            <img src="<%= cijoe_root %>/octocat.png" alt="Octocat!" />
+            <img src="<%= hawk_root %>/octocat.png" alt="Octocat!" />
           </a>
         </div>
       </div>
